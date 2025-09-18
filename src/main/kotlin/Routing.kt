@@ -35,8 +35,8 @@ fun Application.configureRouting() {
                 val modelName = "llama3.1:latest"
                 val systemPrompt = "You are a helpful assistant. Use your weather tool when needed."
 
-                // --- LLM client + model
-                val llmClient = OllamaClient()
+                // Get the configured Ollama client
+                val llmClient = OllamaClient(baseUrl = "http://localhost:8080")
                 val llmModel = LLModel(
                     provider = LLMProvider.Ollama,
                     id = modelName,

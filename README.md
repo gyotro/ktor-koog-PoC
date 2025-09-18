@@ -1,40 +1,78 @@
-# ktor-koog
+# Ktor Koog AI Agent PoC
 
-This project was created using the [Ktor Project Generator](https://start.ktor.io).
-
-Here are some useful links to get you started:
-
-- [Ktor Documentation](https://ktor.io/docs/home.html)
-- [Ktor GitHub page](https://github.com/ktorio/ktor)
-- The [Ktor Slack chat](https://app.slack.com/client/T09229ZC6/C0A974TJ9). You'll need to [request an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up) to join.
+A Kotlin/Ktor application demonstrating AI agent capabilities using the Koog framework with Ollama's LLaMA 3.1 model.
 
 ## Features
 
-Here's a list of features included in this project:
+- **AI Agent Integration**: Built with Koog's AI agent framework
+- **Tool Integration**: Supports MCP (Model Control Protocol) tools
+- **LLM Backend**: Powered by Ollama's LLaMA 3.1 model
+- **REST API**: Simple HTTP endpoints for AI interactions
 
-| Name                                               | Description                                                 |
-| ----------------------------------------------------|------------------------------------------------------------- |
-| [Koog](https://start.ktor.io/p/koog)               | Integrate LLMs and build AI Agents with Koog framework      |
-| [Routing](https://start.ktor.io/p/routing-default) | Allows to define structured routes and associated handlers. |
+## Prerequisites
+
+- Java 17 or higher
+- Gradle 7.6 or higher
+- Ollama server running locally (for LLaMA 3.1 model)
+
+## Setup
+
+1. Clone the repository
+2. Install Ollama and pull the LLaMA 3.1 model:
+   ```bash
+   ollama pull llama3.1:latest
+   ```
+3. Start the Ollama server (if not already running):
+   ```bash
+   ollama serve
+   ```
+
+## API Endpoints
+
+### Chat with AI Agent
+
+```
+POST /ai/chat
+Content-Type: text/plain
+
+Your message here
+```
+
+**Example using cURL:**
+```bash
+curl -X POST http://localhost:8080/ai/chat \
+  -H "Content-Type: text/plain" \
+  -d "What's the weather like today?"
+```
 
 ## Building & Running
 
-To build or run the project, use one of the following tasks:
+### Development
 
-| Task                          | Description                                                          |
-| -------------------------------|---------------------------------------------------------------------- |
-| `./gradlew test`              | Run the tests                                                        |
-| `./gradlew build`             | Build everything                                                     |
-| `buildFatJar`                 | Build an executable JAR of the server with all dependencies included |
-| `buildImage`                  | Build the docker image to use with the fat JAR                       |
-| `publishImageToLocalRegistry` | Publish the docker image locally                                     |
-| `run`                         | Run the server                                                       |
-| `runDocker`                   | Run using the local docker image                                     |
-
-If the server starts successfully, you'll see the following output:
-
-```
-2024-12-04 14:32:45.584 [main] INFO  Application - Application started in 0.303 seconds.
-2024-12-04 14:32:45.682 [main] INFO  Application - Responding at http://0.0.0.0:8080
+```bash
+./gradlew run
 ```
 
+### Build JAR
+
+```bash
+./gradlew buildFatJar
+java -jar build/libs/ktor-koog-PoC-all.jar
+```
+
+### Docker
+
+Build and run using Docker:
+
+```bash
+./gradlew buildImage
+docker run -p 8080:8080 ktor-koog-poc
+```
+
+## Configuration
+
+The application is configured to connect to a local Ollama server. To change the model or other settings, modify the `Routing.kt` file.
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.

@@ -6,6 +6,9 @@ logback = "1.4.14"
 
 [libraries]
 koog-ktor = { module = "ai.koog:koog-ktor", version.ref = "koog" }
+koog-agents-core = { module = "ai.koog:koog-agents-core", version.ref = "koog" }
+koog-prompt-core = { module = "ai.koog:koog-prompt-core", version.ref = "koog" }
+koog-prompt-ollama = { module = "ai.koog:koog-prompt-ollama", version.ref = "koog" }
 ktor-server-core = { module = "io.ktor:ktor-server-core-jvm", version.ref = "ktor" }
 ktor-server-netty = { module = "io.ktor:ktor-server-netty", version.ref = "ktor" }
 logback-classic = { module = "ch.qos.logback:logback-classic", version.ref = "logback" }
