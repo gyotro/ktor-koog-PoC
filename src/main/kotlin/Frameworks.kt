@@ -24,22 +24,5 @@ fun Application.configureFrameworks() {
             deepSeek(apiKey = "your-deepseek-api-key")
         }
     }
-    
-    routing {
-        route("/ai") {
-            post("/chat") {
-                val userInput = call.receive<String>()
-                val modelName = "llama3.1:latest"
-                val llmModel = LLModel(
-                    provider = LLMProvider.Ollama,
-                    id = modelName,
-                    capabilities = listOf(LLMCapability.Completion, LLMCapability.Tools),
-                    contextLength = 8192,  // LLaMA 3 standard context length
-                    maxOutputTokens = 4096  // Reasonable limit for responses
-                )
-                val output = aiAgent(userInput, model = llmModel)
-                call.respondText(output)
-            }
-        }
-    }
 }
+
