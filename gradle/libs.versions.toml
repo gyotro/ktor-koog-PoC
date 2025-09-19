@@ -1,12 +1,12 @@
 [versions]
-koog = "0.4.0"
+koog = "0.4.1"
 kotlin = "2.2.20"
 ktor = "3.3.0"
 logback = "1.4.14"
 
 [libraries]
 koog-ktor = { module = "ai.koog:koog-ktor", version.ref = "koog" }
-koog-agents-core = { module = "ai.koog:koog-agents-core", version.ref = "koog" }
+koog-agents-core = { module = "ai.koog:koog-agents", version.ref = "koog" }
 koog-prompt-core = { module = "ai.koog:koog-prompt-core", version.ref = "koog" }
 koog-prompt-ollama = { module = "ai.koog:koog-prompt-ollama", version.ref = "koog" }
 ktor-server-core = { module = "io.ktor:ktor-server-core-jvm", version.ref = "ktor" }

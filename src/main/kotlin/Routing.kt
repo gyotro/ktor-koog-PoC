@@ -36,7 +36,7 @@ fun Application.configureRouting() {
                 val systemPrompt = "You are a helpful assistant. Use your weather tool when needed."
 
                 // Get the configured Ollama client
-                val llmClient = OllamaClient(baseUrl = "http://localhost:8080")
+                val llmClient = OllamaClient()
                 val llmModel = LLModel(
                     provider = LLMProvider.Ollama,
                     id = modelName,
@@ -47,7 +47,7 @@ fun Application.configureRouting() {
                 val executor = SingleLLMPromptExecutor(llmClient)
 
                 // --- MCP tool registry
-                val transport = McpToolRegistryProvider.defaultSseTransport("http://localhost:8085")
+                val transport = McpToolRegistryProvider.defaultSseTransport("http://localhost:8085/sse")
                 val toolRegistry = McpToolRegistryProvider.fromTransport(
                     transport = transport,
                     name = "weather-client",

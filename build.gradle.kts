@@ -38,8 +38,8 @@ dependencies {
     // Koog AI dependencies
     implementation(libs.koog.ktor)
     implementation(libs.koog.agents.core)
-    implementation(libs.koog.prompt.core)
-    implementation(libs.koog.prompt.ollama)
+ //   implementation(libs.koog.prompt.core)
+ //   implementation(libs.koog.prompt.ollama)
     
     // Ktor dependencies
     implementation(libs.ktor.server.core)
